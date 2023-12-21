@@ -7,7 +7,7 @@ const Home = () => {
       <h1  className='text-white font-mosk text-xl -rotate-2'>👋 Hi, I'm Istieak Ahmed</h1>
       <h2 className='pt-3 text-6xl font-black font-mosk text-[#ccf381]'>MERN Stack <br/> Developer</h2>
       <p className='pt-3 text-white font-mosk text-sm'>I'm a MERN Stack Developer. I love to build websites and web apps.</p>
-      <Button>Hire me</Button>
+      <Button className='mt-5'>Hire me</Button>
     </div>
 
   )
