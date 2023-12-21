@@ -1,3 +1,10 @@
+@import url('https://fonts.cdnfonts.com/css/mosk');
+
+@font-face {
+    font-family: 'scripto';
+    src: url(./assets/fonts/Scripto-2OR2v.ttf) format('truetype');
+}
+
 @import "keep-react/css";
 @tailwind base;
 @tailwind components;

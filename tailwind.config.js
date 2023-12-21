@@ -8,6 +8,11 @@ export default {
     "node_modules/keep-react/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    fontFamily: {
+      'scripto': ['Scripto', 'cursive'],
+      'mosk': ['Mosk', 'sans-serif'],
+
+    },
     extend: {},
   },
   plugins: [],
