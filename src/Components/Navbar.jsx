@@ -24,22 +24,25 @@ const Navbar = () => {
     },
     exit: {
       scaleY: 0,
+      
       transition: {
+        delay: 0.5,
         duration: 0.5,
         ease: [0.22, 1, 0.36, 1],
       },
     },
   };
-  const linkVariants = {
+  const itemVariants = {
     initial: {
-      y: 10,
-      opacity: 0,
-    },
-    animate: {
-      y: 0,
-      opacity: 1,
       transition: {
-        duration: 0.2,
+        staggerChildren: 0.9,
+        staggerDirection: -1,
+      },
+    },
+    open: {
+      transition: {
+        staggerChildren: 0.09,
+        staggerDirection: 1,
       },
     },
   };
@@ -86,11 +89,19 @@ const Navbar = () => {
               <h1 className="text-[#4831d4] font-scripto text-4xl">Istieak.</h1>
             </div>
             <div className="px-16 py-5 flex flex-col gap-12">
-              <div className="flex flex-col gap-3 text-[#4831d4]">
+              <motion.div
+                variants={itemVariants}
+                initial="initial"
+                animate="open"
+                // exit="initial"
+                className="flex flex-col gap-3 text-[#4831d4]"
+              >
                 {navData.map((item, index) => (
-                  <NavItem key={index} title={item.title} link={item.link} />
+                  <div key={index} className="overflow-hidden">
+                    <NavItem title={item.title} link={item.link} />
+                  </div>
                 ))}
-              </div>
+              </motion.div>
               <div className="flex flex-col gap-8">
                 <p className="text-[#cbc9e2] tracking-[8px]">SAY HELLO</p>
                 <div className="flex flex-col gap-3 text-[#4831d4] font-[500]">
@@ -107,24 +118,26 @@ const Navbar = () => {
 };
 export default Navbar;
 
-// const linkAnimate = {
-//   initial: {
-//     y: "30vh",
-//     transition: {
-//       duration: 0.5,
-//     },
-//   },
-//   animate: {
-//     y: 0,
-//     transition: {
-//       duration: 0.5,
-//     },
-//   },
-// };
+const linkVariants = {
+  initial: {
+    y: "30vh",
+    transition: {
+      duration: 0.5,
+      ease: [0.37, 0, 0.63, 1],
+    },
+  },
+  open: {
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.55, 0, 0.45, 1],
+    },
+  },
+};
 
 const NavItem = ({ title, link }) => {
   return (
-    <motion.div>
+    <motion.div variants={linkVariants}>
       <Link className="text-xl font-[500]" to={link}>
         {title}
       </Link>
