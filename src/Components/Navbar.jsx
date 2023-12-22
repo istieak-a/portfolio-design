@@ -66,8 +66,8 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div className="bg-[#4831d4] h-[90px] w-full flex items-center justify-between px-10">
-        <h1 className="text-[#ccf381] font-scripto text-4xl">Istieak.</h1>
+      <div className="flex h-[90px] w-full items-center justify-between bg-[#4831d4] px-10">
+        <h1 className="font-scripto text-4xl text-[#ccf381]">Istieak.</h1>
         <motion.div
           variants={toggleVariants}
           animate={navToggle ? "open" : "closed"}
@@ -75,12 +75,12 @@ const Navbar = () => {
         >
           {navToggle ? (
             <IoCloseSharp
-              className="text-4xl cursor-pointer"
+              className="cursor-pointer text-4xl"
               onClick={() => setNavToggle(!navToggle)}
             />
           ) : (
             <IoMenu
-              className="text-4xl cursor-pointer text-[#ccf381]"
+              className="cursor-pointer text-4xl text-[#ccf381]"
               onClick={() => setNavToggle(!navToggle)}
             />
           )}
@@ -93,12 +93,12 @@ const Navbar = () => {
             initial="initial"
             animate="animate"
             exit="exit"
-            className="h-screen origin-top w-full absolute top-0 z-40 left-0 bg-white"
+            className="absolute left-0 top-0 z-40 h-screen w-full origin-top bg-white"
           >
-            <div className="h-[90px] flex items-center px-10">
-              <h1 className="text-[#4831d4] font-scripto text-4xl">Istieak.</h1>
+            <div className="flex h-[90px] items-center px-10">
+              <h1 className="font-scripto text-4xl text-[#4831d4]">Istieak.</h1>
             </div>
-            <div className="px-16 py-5 flex flex-col gap-12">
+            <div className="flex flex-col gap-12 px-16 py-5">
               <motion.div
                 variants={itemVariants}
                 initial="initial"
@@ -113,7 +113,7 @@ const Navbar = () => {
                 ))}
               </motion.div>
               <div className="flex flex-col gap-8">
-                <p className="text-[#cbc9e2] tracking-[8px]">SAY HELLO</p>
+                <p className="tracking-[8px] text-[#cbc9e2]">SAY HELLO</p>
                 <motion.div
                   variants={itemVariants}
                   initial="initial"
