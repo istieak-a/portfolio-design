@@ -11,6 +11,10 @@ const Navbar = () => {
     { title: "My Shelf", link: "/shelf" },
     { title: "My Resume", link: "/resume" },
   ];
+  const contactData = [
+    { title: "hello@istieakahmed.com", link: "#" },
+    { title: "+880 15711-42863", link: "#" },
+  ];
   const menuAnimate = {
     initial: {
       scaleY: 0,
@@ -24,9 +28,9 @@ const Navbar = () => {
     },
     exit: {
       scaleY: 0,
-      
+
       transition: {
-        delay: 0.5,
+        delay: 0.2,
         duration: 0.5,
         ease: [0.22, 1, 0.36, 1],
       },
@@ -43,6 +47,12 @@ const Navbar = () => {
       transition: {
         staggerChildren: 0.09,
         staggerDirection: 1,
+      },
+    },
+    exit: {
+      transition: {
+        staggerChildren: 0.2,
+        staggerDirection: -1,
       },
     },
   };
@@ -93,8 +103,8 @@ const Navbar = () => {
                 variants={itemVariants}
                 initial="initial"
                 animate="open"
-                // exit="initial"
-                className="flex flex-col gap-3 text-[#4831d4]"
+                exit="exit"
+                className="flex flex-col gap-3"
               >
                 {navData.map((item, index) => (
                   <div key={index} className="overflow-hidden">
@@ -104,10 +114,18 @@ const Navbar = () => {
               </motion.div>
               <div className="flex flex-col gap-8">
                 <p className="text-[#cbc9e2] tracking-[8px]">SAY HELLO</p>
-                <div className="flex flex-col gap-3 text-[#4831d4] font-[500]">
-                  <a href="#">hello@istieakahmed.com</a>
-                  <a href="#">+880 15711-42863</a>
-                </div>
+                <motion.div
+                  variants={itemVariants}
+                  initial="initial"
+                  animate="open"
+                  className="flex flex-col gap-3"
+                >
+                  {contactData.map((item, index) => (
+                    <div key={index} className="overflow-hidden">
+                      <NavItem title={item.title} link={item.link} />
+                    </div>
+                  ))}
+                </motion.div>
               </div>
             </div>
           </motion.div>
@@ -138,7 +156,7 @@ const linkVariants = {
 const NavItem = ({ title, link }) => {
   return (
     <motion.div variants={linkVariants}>
-      <Link className="text-xl font-[500]" to={link}>
+      <Link className="text-xl font-[500] text-[#4831d4]" to={link}>
         {title}
       </Link>
     </motion.div>
