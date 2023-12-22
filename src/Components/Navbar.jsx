@@ -30,11 +30,36 @@ const Navbar = () => {
       },
     },
   };
+  const linkVariants = {
+    initial: {
+      y: 10,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+  const toggleVariants = {
+    open: {
+      rotate: 90,
+    },
+    closed: {
+      rotate: 0,
+    },
+  };
   return (
     <div>
       <div className="bg-[#4831d4] h-[90px] w-full flex items-center justify-between px-10">
         <h1 className="text-[#ccf381] font-scripto text-4xl">Istieak.</h1>
-        <div className=" z-50">
+        <motion.div
+          variants={toggleVariants}
+          animate={navToggle ? "open" : "closed"}
+          className=" z-50"
+        >
           {navToggle ? (
             <IoCloseSharp
               className="text-4xl cursor-pointer"
@@ -46,7 +71,7 @@ const Navbar = () => {
               onClick={() => setNavToggle(!navToggle)}
             />
           )}
-        </div>
+        </motion.div>
       </div>
       <AnimatePresence>
         {navToggle && (
@@ -80,15 +105,29 @@ const Navbar = () => {
     </div>
   );
 };
+export default Navbar;
+
+// const linkAnimate = {
+//   initial: {
+//     y: "30vh",
+//     transition: {
+//       duration: 0.5,
+//     },
+//   },
+//   animate: {
+//     y: 0,
+//     transition: {
+//       duration: 0.5,
+//     },
+//   },
+// };
 
 const NavItem = ({ title, link }) => {
   return (
-    <div>
+    <motion.div>
       <Link className="text-xl font-[500]" to={link}>
         {title}
       </Link>
-    </div>
+    </motion.div>
   );
 };
-
-export default Navbar;
