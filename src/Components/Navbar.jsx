@@ -3,6 +3,8 @@ import { IoMenu } from "react-icons/io5";
 import { IoCloseSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import SocialIcons from "./SocialIcons";
+import { Button } from "keep-react";
 
 const Navbar = () => {
   const [navToggle, setNavToggle] = React.useState(false);
@@ -66,12 +68,22 @@ const Navbar = () => {
   };
   return (
     <div>
-      <div className="flex h-[90px] w-full items-center justify-between bg-[#4831d4] px-10">
-        <h1 className="font-scripto text-4xl text-[#ccf381]">Istieak.</h1>
+      <div className="flex h-[90px] w-full items-center justify-between bg-[#4831d4] md:bg-transparent md:absolute px-10 lg:px-20">
+        <Link to={`/`} className="font-scripto text-4xl text-[#ccf381]">Istieak.</Link>
+        <div className="hidden md:flex gap-5">
+          {navData.map((item, index) => (
+            <div key={index} className="overflow-hidden">
+              <NavItemlg title={item.title} link={item.link} />
+            </div>
+          ))}
+        </div>
+        <div className="hidden md:block">
+          <Button>Contact me</Button>
+        </div>
         <motion.div
           variants={toggleVariants}
           animate={navToggle ? "open" : "closed"}
-          className=" z-50"
+          className=" z-50 md:hidden"
         >
           {navToggle ? (
             <IoCloseSharp
@@ -125,6 +137,7 @@ const Navbar = () => {
                       <NavItem title={item.title} link={item.link} />
                     </div>
                   ))}
+                  <SocialIcons color={`#4831d4`} />
                 </motion.div>
               </div>
             </div>
@@ -160,5 +173,15 @@ const NavItem = ({ title, link }) => {
         {title}
       </Link>
     </motion.div>
+  );
+};
+
+const NavItemlg = ({ title, link }) => {
+  return (
+    <div>
+      <Link className="text-xl font-[700] tracking-wide text-white" to={link}>
+        {title}
+      </Link>
+    </div>
   );
 };
