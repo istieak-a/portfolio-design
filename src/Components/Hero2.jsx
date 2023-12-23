@@ -16,7 +16,7 @@ const Hero2 = () => {
   ];
   return (
     <div className="relative">
-      <ul className="flex h-[90vh] flex-col justify-center gap-5 px-10 pt-10 md:flex-row md:px-20 [&>*:nth-child(2)]:md:ps-44 [&>*:nth-child(2)]:md:pt-48">
+      <ul className="flex h-[90vh] flex-col justify-center gap-5 px-10 md:flex-row md:px-20 md:pt-10 [&>*:nth-child(2)]:md:ps-44 [&>*:nth-child(2)]:md:pt-48">
         {serviceData.map((item, index) => (
           <ServiceCard key={index} title={item.title} desc={item.desc} />
         ))}
