@@ -1,0 +1,14 @@
+
+
+.btn{
+    border: 1px solid #4831d4;
+    color: #4831d4;
+    padding: 14px 45px;
+    background: linear-gradient(to left, #fff 50%, #4831d4 50%) right;
+    background-size: 200%;
+    transition: .3s ease-out;
+}
+.btn:hover{
+    background-position: left;
+    color: #fff;
+}

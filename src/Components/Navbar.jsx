@@ -4,7 +4,8 @@ import { IoCloseSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import SocialIcons from "./SocialIcons";
-import { Button } from "keep-react";
+import {Button} from "@nextui-org/react";
+
 
 const Navbar = () => {
   const [navToggle, setNavToggle] = React.useState(false);
@@ -78,7 +79,7 @@ const Navbar = () => {
           ))}
         </div>
         <div className="hidden md:block">
-          <Button>Contact me</Button>
+          <Button color="primary">Contact me</Button>
         </div>
         <motion.div
           variants={toggleVariants}

@@ -1,11 +1,10 @@
 import React from "react";
-import { Button } from "keep-react";
 import SocialIcons from "./SocialIcons";
 import { motion } from "framer-motion";
 import png1 from "../assets/png/dots.png";
 import png2 from "../assets/png/5dots.png";
 import png3 from '../assets/png/curve1.png'
-
+import {Button} from "@nextui-org/react";
 const Home = () => {
   const code = `
 class Person {
@@ -30,7 +29,7 @@ class Person {
         <p className="pt-3 font-mosk text-sm text-white">
           I'm a MERN Stack Developer. I love to build websites and web apps.
         </p>
-        <Button className="mt-5">Hire me</Button>
+        <Button className="mt-5" color="primary">Hire me</Button>
         <SocialIcons color="#fff" />
       </div>
       <div className="flex h-[60vh] items-center justify-center bg-[#ccf381] md:h-screen md:w-[40%]">
