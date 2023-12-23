@@ -11,7 +11,7 @@ export default {
     fontFamily: {
       'scripto': ['Scripto', 'cursive'],
       'mosk': ['Mosk', 'sans-serif'],
-
+      'sfui': ['SF UI Display', 'sans-serif'],
     },
     extend: {},
   },

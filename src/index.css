@@ -1,9 +1,14 @@
 @import url('https://fonts.cdnfonts.com/css/mosk');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @font-face {
     font-family: 'scripto';
     src: url(./assets/fonts/Scripto-2OR2v.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'sfui';
+    src: url(./assets/fonts/SFUIText-Regular.ttf);
 }
 
 @import "keep-react/css";
@@ -12,5 +17,5 @@
 @tailwind utilities;
 
 body{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
 }
