@@ -1,8 +1,9 @@
 import { Button } from "keep-react";
 import React from "react";
-import Home from "./Components/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
+import Home from "./Components/home";
+
 
 const App = () => {
   return (
