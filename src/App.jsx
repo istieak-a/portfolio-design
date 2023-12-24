@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
-import Home from "./Components/home";
 import Footer from "./Components/Footer";
 import WorkPage from "./Components/WorkPage";
 import ContactPage from "./Components/ContactPage";
 import NotFound404 from "./Components/NotFound404";
+import Home from './Components/Home'
 
 const App = () => {
   return (
