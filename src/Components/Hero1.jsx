@@ -33,7 +33,7 @@ class Person {
         <SocialIcons color="#fff" />
       </div>
       <div className="flex h-[60vh] items-center justify-center bg-[#ccf381] md:h-screen md:w-[40%]">
-        <div className="left-[50%] z-40 flex h-[300px] w-[370px] md:w-[400px] lg:w-[420px] flex-col justify-center rounded-xl bg-[#232323] px-10 text-white  shadow-2xl md:absolute">
+        <div className="left-[50%] z-30 flex h-[300px] w-[370px] md:w-[400px] lg:w-[420px] flex-col justify-center rounded-xl bg-[#232323] px-10 text-white  shadow-2xl md:absolute">
           {lines.map((line, i, index) => {
             return <p key={index}>{`${i + 1}. ${line}`}</p>;
           })}

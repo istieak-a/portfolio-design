@@ -29,7 +29,7 @@ const Hero4 = () => {
 
 const ProjectCard = ({img, git, live}) => {
   return (
-    <div className="border-2 flex flex-col justify-start border-[#4831d4] hover:shadow-xl h-[270px] rounded-xl w-[400px]">
+    <div className="border-2 flex flex-col justify-start border-[#4831d4] hover:shadow-xl h-[270px] rounded-xl w-[350px] md:w-[400px]">
       <div className="overflow-hidden h-[60%] w-full">
       <img className="cursor-pointer hover:scale-125 h-full w-full rounded-t-xl object-cover duration-300" src={img} />
       </div>

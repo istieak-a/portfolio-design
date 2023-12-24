@@ -13,7 +13,7 @@ const Footer = () => {
   ];
   return (
     <div className="flex flex-col gap-10 bg-[#3d155f] px-10 md:px-28 py-20">
-      <div className="flex gap-16 md:gap-48">
+      <div className="flex gap-11 md:gap-48">
         <div>
           <p className="tracking-wider text-[#cbc9e2]">SAY HELLO</p>
           <div className="pt-5 flex flex-col gap-2">
