@@ -121,7 +121,7 @@ const Navbar = () => {
               >
                 {navData.map((item, index) => (
                   <div key={index} className="overflow-hidden">
-                    <NavItem title={item.title} link={item.link} />
+                    <NavItem setNavToggle={setNavToggle} title={item.title} link={item.link} />
                   </div>
                 ))}
               </motion.div>
@@ -135,7 +135,7 @@ const Navbar = () => {
                 >
                   {contactData.map((item, index) => (
                     <div key={index} className="overflow-hidden">
-                      <NavItem title={item.title} link={item.link} />
+                      <NavItem setNavToggle={setNavToggle} title={item.title} link={item.link} />
                     </div>
                   ))}
                   <SocialIcons color={`#4831d4`} />
@@ -167,10 +167,10 @@ const linkVariants = {
   },
 };
 
-const NavItem = ({ title, link }) => {
+const NavItem = ({ title, link, setNavToggle }) => {
   return (
     <motion.div variants={linkVariants}>
-      <Link className="text-xl font-[500] text-[#4831d4]" to={link}>
+      <Link onClick={() => setNavToggle(false)} className="text-xl font-[500] text-[#4831d4]" to={link}>
         {title}
       </Link>
     </motion.div>

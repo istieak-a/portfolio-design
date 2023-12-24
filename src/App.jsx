@@ -3,6 +3,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Home from "./Components/home";
 import Footer from "./Components/Footer";
+import WorkPage from "./Components/WorkPage";
+import ResumePage from "./Components/ResumePage";
+import ContactPage from "./Components/ContactPage";
+import NotFound404 from "./Components/NotFound404";
 
 
 const App = () => {
@@ -11,6 +15,11 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/work" element={<WorkPage />} />
+        <Route path="/shelf" element={<WorkPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<NotFound404 />} />
+        
       </Routes>
       <Footer/>
     </BrowserRouter>
