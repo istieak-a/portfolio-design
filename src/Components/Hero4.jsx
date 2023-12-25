@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import proj1 from "../assets/projects/david-chang.png";
 import proj2 from "../assets/projects/the-dubbery.png";
 import { FaGithub } from "react-icons/fa";
 import Button from "../Components/Button/Button";
 import { Link } from "react-router-dom";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Hero4 = () => {
   const ProjData = [
@@ -40,23 +42,41 @@ const Hero4 = () => {
 };
 
 const ProjectCard = ({ img, git, live }) => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  const cardVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
+  };
   return (
-    <div className="flex h-[270px] w-[350px] flex-col justify-start rounded-xl border-2 border-[#4831d4] hover:shadow-xl md:w-[400px]">
-      <div className="h-[60%] w-full overflow-hidden">
-        <img
-          className="h-full w-full cursor-pointer rounded-t-xl object-cover duration-300 hover:scale-125"
-          src={img}
-        />
-      </div>
-      <div className="flex items-center gap-4 px-5 pt-6 ">
-        <Link to={live} target="_blank">
-          <Button>Visit Project</Button>
-        </Link>
-        <Link to={git} target="_blank">
-          <FaGithub className="cursor-pointer text-3xl text-[#4831d4] duration-300 hover:text-[#4831d4]" />
-        </Link>
-      </div>
-    </div>
+    <motion.div
+      ref={ref}
+      className="flex h-[270px] w-[350px] flex-col justify-start rounded-xl border-2 border-[#4831d4] hover:shadow-xl md:w-[400px]"
+    >
+      <motion.div variants={cardVariants} initial="hidden" animate={controls}>
+        <div className="h-[60%] w-full overflow-hidden">
+          <img
+            className="h-full w-full cursor-pointer rounded-t-xl object-cover duration-300 hover:scale-125"
+            src={img}
+          />
+        </div>
+        <div className="flex items-center gap-4 px-5 pt-6 ">
+          <Link to={live} target="_blank">
+            <Button>Visit Project</Button>
+          </Link>
+          <Link to={git} target="_blank">
+            <FaGithub className="cursor-pointer text-3xl text-[#4831d4] duration-300 hover:text-[#4831d4]" />
+          </Link>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 };
 

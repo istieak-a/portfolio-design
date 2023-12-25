@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SocialIcons from "./SocialIcons";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import png1 from "../assets/png/dots.png";
 import png2 from "../assets/png/5dots.png";
 import png3 from "../assets/png/curve1.png";
@@ -16,6 +17,13 @@ class Person {
 }
 `;
   const lines = code.split("\n");
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
 
   const titleVars = {
     hidden: { opacity: 0, y: -50 },
@@ -30,7 +38,7 @@ class Person {
   };
 
   return (
-    <div className="md:flex">
+    <motion.div ref={ref} className="md:flex">
       <div className="bg-[#4831d4] px-10 pb-5 pt-10 md:h-screen md:w-[60%] md:pt-[150px] lg:px-20">
         <motion.h1
           variants={titleVars}
@@ -93,7 +101,7 @@ class Person {
           alt=""
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
